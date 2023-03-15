@@ -4,27 +4,28 @@
  */
 include 'inc/header.php';
 
-$dsn = 'mysql:dbname:php;host=localhost';
+$dsn = 'mysql:dbname=php;host=localhost';
 $user = 'root';
 $pass = '';
 
 try {
     $pdo = new PDO( $dsn, $user, $pass );
-    // echo "Database connect successfully.";
+    echo "Database connect successfully.";
 } catch (\Throwable $th) {
     echo "Database Connection error." . $th->getMessage();
 }
 
-$id = 1;
-$sql = "SELECT * FROM users WHERE id=:id";
+$id = null;
+$name = "MonzurAlam";
+$position = "WordPress Developer";
+$skill = "WordPress, PHP,mySql, jQuery, Docker, kubernet";
+$sql = "INSERT INTO users( id, name, position, skill ) Values( :id, :name, :position, :skill )";
 $data = $pdo->prepare( $sql );
-// $query->bindValue( ':id', $id );
-$data->execute( array( ':id' => $id ));
-// print_r( $query );
-while( $result = $data->fetch() ){
-    echo "<pre>";
-    print_r( $result['name'] );
-    echo "</pre>";
-}
+$data->bindParam( ':id', $id );
+$data->bindParam( ':name', $name );
+$data->bindParam( ':position', $position );
+$data->bindParam( ':skill', $skill );
+$data->execute();
+
 
 include 'inc/footer.php';
