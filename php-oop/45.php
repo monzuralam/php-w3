@@ -20,11 +20,16 @@ $id = 4;
 $sql = "SELECT * FROM users Where id=:id";
 $data = $pdo->prepare( $sql );
 $data->execute( array( ":id" => $id ) ); 
-*/
 
 $sql = "SELECT * FROM users Where id=?";
 $data = $pdo->prepare( $sql );
 $data->execute( array( $id ) );
+*/
+
+$sql = "SELECT * FROM users Where id=?";
+$data = $pdo->prepare( $sql );
+$data -> bindValue( 1 , $id );
+$data->execute();
 
 if( $data = $data->fetch() ){
     echo "Name: " . $data["name"] . "<br>";
