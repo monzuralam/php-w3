@@ -16,9 +16,15 @@ try {
 
 $id = 4;
 
+/*
 $sql = "SELECT * FROM users Where id=:id";
 $data = $pdo->prepare( $sql );
 $data->execute( array( ":id" => $id ) ); 
+*/
+
+$sql = "SELECT * FROM users Where id=?";
+$data = $pdo->prepare( $sql );
+$data->execute( array( $id ) );
 
 if( $data = $data->fetch() ){
     echo "Name: " . $data["name"] . "<br>";
