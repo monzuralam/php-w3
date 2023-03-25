@@ -9,7 +9,7 @@ class DB{
     public static function connection(){
         if( ! isset( self::$pdo ) ){
             try {
-                self::$pdo = new PDO( 'mysql:dbname' . DATABASE . ';host:' . HOST.';' , USER, PASSWORD);
+                self::$pdo = new PDO( 'mysql:dbname=' . DATABASE . ';host=' . HOST.';' , USER, PASSWORD);
             } catch (\PDOException $th) {
                 echo "Database Connection error." . $th->getMessage();
             }
