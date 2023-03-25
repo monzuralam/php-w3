@@ -16,4 +16,11 @@ class DB{
         }
         return self::$pdo;
     }
+    
+    /**
+     * Prepare statement
+     */
+    public static function prepare( $sql ){
+        return self::connection()->prepare( $sql );
+    }
 }
