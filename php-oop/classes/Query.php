@@ -87,4 +87,17 @@ class Query{
         $result = $query->fetchAll();
         return $result;
     }
+
+    /**
+     * Delete Data
+     */
+    public static function delete( $id, $table = 'users' ){
+        $sql = "DELETE FROM $table Where id=?";
+        $query = DB::prepare( $sql );
+        $query->bindValue( 1, $id );
+        $result = $query->execute();
+        if( $result ){
+            return 'Deleted.';
+        }
+    }
 }
