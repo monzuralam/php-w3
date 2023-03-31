@@ -8,4 +8,11 @@ class Index extends Controller{
     public function home(){
         $this->load->view('home');
     }
+
+    public function category(){
+        $data = [];
+        $catmodel = $this->load->model( 'CatModel' );
+        $data['cat'] = $catmodel->categoryList();
+        $this->load->view( 'category', $data );
+    }
 }
