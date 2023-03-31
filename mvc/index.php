@@ -6,7 +6,7 @@ include 'inc/header.php';
 include 'system/lib/Main.php';
 include 'system/lib/Controller.php';
 include 'system/lib/Load.php';
-$main = new Main();
+// $main = new Main();
 ?>
 <div class="container">
     <div class="row">
