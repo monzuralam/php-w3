@@ -12,7 +12,7 @@ class Index extends Controller{
     public function category(){
         $data = [];
         $catmodel = $this->load->model( 'CatModel' );
-        $data['cat'] = $catmodel->categoryList();
+        $data = $catmodel->categoryList();
         $this->load->view( 'category', $data );
     }
 }

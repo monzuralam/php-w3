@@ -6,6 +6,8 @@ include 'inc/header.php';
 include 'system/lib/Main.php';
 include 'system/lib/Controller.php';
 include 'system/lib/Load.php';
+include 'system/lib/Database.php';
+include 'system/lib/DatabaseModel.php';
 // $main = new Main();
 ?>
 <div class="container">

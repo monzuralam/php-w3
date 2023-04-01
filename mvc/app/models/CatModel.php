@@ -2,14 +2,11 @@
 /**
  * Category Model
  */
-class CatModel{
+class CatModel extends DatabaseModel{
     public function categoryList(){
-        $data = [
-            'web-development'   =>      'Web Development',
-            'web-design'        =>      'Web Design',
-            'docker'            =>      'Docker',
-            'linux'             =>      'Linux',
-        ];
-        return $data;
+        $sql = "SELECT * FROM category";
+        $query = $this->db->query( $sql );
+        $result = $query->fetchAll();
+        return $result;
     }
 }
