@@ -14,4 +14,13 @@ class Database extends PDO{
         $result = $query->fetchAll();
         return $result;
     }
+
+    public function selectById( $table, $id ){
+        $sql = "SELECT * FROM $table Where id=?";
+        $query = $this->prepare( $sql );
+        $query->bindValue( 1, $id );
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }
 }

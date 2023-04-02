@@ -15,4 +15,13 @@ class Index extends Controller{
         $data = $catmodel->categoryList();
         $this->load->view( 'category', $data );
     }
+
+    public function catById(){
+        $data = [];
+        $table = 'category';
+        $id = 2;
+        $catmodel = $this->load->model( 'CatModel' );
+        $data = $catmodel->catById( $table, $id );
+        $this->load->view( 'categorybyid', $data );
+    }
 }
