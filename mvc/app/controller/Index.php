@@ -11,8 +11,9 @@ class Index extends Controller{
 
     public function category(){
         $data = [];
+        $table = 'category';
         $catmodel = $this->load->model( 'CatModel' );
-        $data = $catmodel->categoryList();
+        $data = $catmodel->categoryList( $table );
         $this->load->view( 'category', $data );
     }
 

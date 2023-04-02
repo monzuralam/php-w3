@@ -3,11 +3,27 @@
  * Category Model
  */
 class CatModel extends DatabaseModel{
-    public function categoryList(){
-        return $this->db->select( 'category' );
+    /**
+     * Category Model
+     *
+     * @param [string] $table
+     * @return string
+     */
+    public function categoryList( $table ){
+        $sql = "SELECT * FROM $table";
+        return $this->db->select( $sql );
     }
 
+    /**
+     * Category Query with ID
+     *
+     * @param [string] $table
+     * @param [int] $id
+     * @return string
+     */
     public function catById( $table, $id ){
-        return $this->db->selectById( $table, $id );
+        $sql = "SELECT * FROM $table Where id=:id";
+        $data = [ ':id' => $id ]; 
+        return $this->db->select( $sql, $data );
     }
 }

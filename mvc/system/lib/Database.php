@@ -7,14 +7,17 @@ class Database extends PDO{
         parent::__construct( $dsn, $user, $pass );
     }
 
-    public function select( $table ){
-        $sql = "SELECT * FROM $table";
+    public function select( $sql, $data = [], $fetchStyle = PDO::FETCH_ASSOC ){
         $query = $this->prepare( $sql );
+        foreach( $data as $key => $value ){
+            $query->bindValue( $key, $value );
+        }
         $query->execute();
-        $result = $query->fetchAll();
+        $result = $query->fetchAll( $fetchStyle );
         return $result;
     }
 
+    /*
     public function selectById( $table, $id ){
         $sql = "SELECT * FROM $table Where id=?";
         $query = $this->prepare( $sql );
@@ -22,5 +25,5 @@ class Database extends PDO{
         $query->execute();
         $result = $query->fetchAll();
         return $result;
-    }
+    } */
 }
