@@ -26,4 +26,15 @@ class CatModel extends DatabaseModel{
         $data = [ ':id' => $id ]; 
         return $this->db->select( $sql, $data );
     }
+
+    /**
+     * Category Insert
+     *
+     * @param [string] $table
+     * @param [array] $data
+     * @return string
+     */
+    public function categoryInsert( $table, $data ){
+        return $this->db->insert( $table, $data );
+    }
 }

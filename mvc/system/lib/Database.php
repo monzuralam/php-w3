@@ -17,6 +17,24 @@ class Database extends PDO{
         return $result;
     }
 
+    /**
+     * Insert Category
+     *
+     * @param [string] $table
+     * @param [array] $data
+     * @return string
+     */
+    public function insert( $table, $data ){
+        $keys = implode( ', ', array_keys( $data ) );
+        $values = ':'. implode( ', :', array_keys( $data ) );
+        $sql = "INSERT INTO $table( $keys ) VALUES( $values )";
+        $query = $this->prepare( $sql );
+        foreach( $data as $key => $value ){
+            $query->bindValue( ":$key", $value );
+        }
+        return $query->execute();
+    }
+
     /*
     public function selectById( $table, $id ){
         $sql = "SELECT * FROM $table Where id=?";

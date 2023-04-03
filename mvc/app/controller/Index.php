@@ -25,4 +25,15 @@ class Index extends Controller{
         $data = $catmodel->catById( $table, $id );
         $this->load->view( 'categorybyid', $data );
     }
+
+    public function categoryInsert(){
+        $table = 'category';
+        $data = [
+            'name'  =>  'Framework',
+            'slug'  =>  'framework',
+            'status'=>  1,
+        ];
+        $catmodel = $this->load->model( 'CatModel' );
+        $data = $catmodel->categoryInsert( $table, $data );
+    }
 }
