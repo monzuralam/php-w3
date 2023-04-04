@@ -26,14 +26,29 @@ class Index extends Controller{
         $this->load->view( 'categorybyid', $data );
     }
 
+    public function addcategory(){
+        $this->load->view( 'addcategory' );
+    }
+
     public function categoryInsert(){
         $table = 'category';
+        $name   = ( isset( $_POST['name'] ) ) ? $_POST['name'] : NULL;
+        $slug   = ( isset( $_POST['slug'] ) ) ? $_POST['slug'] : NULL;
+        $status = ( isset( $_POST['status'] ) ) ? $_POST['status'] : 0 ;
         $data = [
-            'name'  =>  'Framework',
-            'slug'  =>  'framework',
-            'status'=>  1,
+            'name'  =>  $name,
+            'slug'  =>  $slug,
+            'status'=>  $status,
         ];
         $catmodel = $this->load->model( 'CatModel' );
-        $data = $catmodel->categoryInsert( $table, $data );
+        $result = $catmodel->categoryInsert( $table, $data );
+        
+        if( 1 == $result ) {
+            $data['success'] = 'Category has been added successfully.';
+        }{
+            $data['error'] = 'Category hasn\'t inserted. Please try again.';
+        }
+        
+        $this->load->view( 'addcategory', $data );
     }
 }
