@@ -1,5 +1,5 @@
 <h2>Insert Category</h2>
-<form action="/mvc/index/categoryInsert" method="post">
+<form action="/mvc/category/categoryInsert" method="post">
     <div class="form-group">
         <label for="name">Category Name</label>
         <input type="text" name="name" id="name" class="form-control" placeholder="Enter category name here..." required>
