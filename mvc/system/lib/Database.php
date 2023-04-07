@@ -35,6 +35,29 @@ class Database extends PDO{
         return $query->execute();
     }
 
+    /**
+     * Category Update
+     *
+     * @param string $table
+     * @param array $data
+     * @param string $cond
+     * @return string
+     */
+    public function categoryUpdate( $table, $data, $cond ){
+        $updateKeys = NULL;
+        foreach( $data as $key => $value ){
+            $updateKeys .= "$key=:$key,";
+        }
+        $updateKeys = rtrim( $updateKeys, "," );
+        $sql = "UPDATE $table SET $updateKeys WHERE $cond";
+        echo $sql;
+        $query = $this->prepare( $sql );
+        foreach( $data as $key => $value ){
+            $query->bindValue( ":$key", $value );
+        }
+        return $query->execute();
+    }
+
     /*
     public function selectById( $table, $id ){
         $sql = "SELECT * FROM $table Where id=?";

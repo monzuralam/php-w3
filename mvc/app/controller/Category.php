@@ -66,4 +66,21 @@ class Category extends Controller{
         
         $this->load->view( 'addcategory', $data );
     }
+
+    /**
+     * Category Update
+     *
+     * @return string
+     */
+    function categoryUpdate(){
+        $table = 'category';
+        $cond = 'id=1';
+        $data = [
+            'name'  =>  'Monzur Alam',
+            'slug'  =>  'monzuralam',
+            'status'=>  1
+        ];
+        $catmodel = $this->load->model( 'CatModel' );
+        $catmodel->categoryUpdate( $table, $data, $cond );
+    }
 }

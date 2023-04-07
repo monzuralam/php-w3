@@ -37,4 +37,8 @@ class CatModel extends DatabaseModel{
     public function categoryInsert( $table, $data ){
         return $this->db->insert( $table, $data );
     }
+
+    public function categoryUpdate( $table, $data, $cond ){
+        return $this->db->categoryUpdate( $table, $data, $cond );
+    }
 }
