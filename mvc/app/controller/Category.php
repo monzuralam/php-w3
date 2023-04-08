@@ -83,4 +83,16 @@ class Category extends Controller{
         $catmodel = $this->load->model( 'CatModel' );
         $catmodel->categoryUpdate( $table, $data, $cond );
     }
+
+    /**
+     * Category Delete By ID
+     *
+     * @return string
+     */
+    public function catDeleteById(){
+        $table = 'category';
+        $cond = "id=11";
+        $catmodel = $this->load->model( 'CatModel' );
+        echo $catmodel->catDeleteByID( $table, $cond );
+    }
 }

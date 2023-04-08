@@ -58,6 +58,16 @@ class Database extends PDO{
         return $query->execute();
     }
 
+    public function catDeleteById( $table, $cond, $count = 1 ){
+        $sql = "DELETE FROM $table WHERE $cond LIMIT $count";
+        $query = $this->exec( $sql );
+        if( $query ){
+            return "Successfully Category Has been deleted.";
+        }else{
+            return "Something Wrong. Please try again.";
+        }
+    }
+
     /*
     public function selectById( $table, $id ){
         $sql = "SELECT * FROM $table Where id=?";

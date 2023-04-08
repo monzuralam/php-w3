@@ -41,4 +41,8 @@ class CatModel extends DatabaseModel{
     public function categoryUpdate( $table, $data, $cond ){
         return $this->db->categoryUpdate( $table, $data, $cond );
     }
+
+    public function catDeleteById( $table, $cond ){
+        return $this->db->catDeleteById( $table, $cond );
+    }
 }
