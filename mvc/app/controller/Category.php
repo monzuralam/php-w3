@@ -85,6 +85,38 @@ class Category extends Controller{
     }
 
     /**
+     * Category Update
+     * user can update category by id parameter on url
+     * http://php-w3.test/mvc/category/catUpdate?id=4
+     *
+     * @return string
+     */
+    public function catUpdate(){
+        $table = 'category';
+        $id = ( isset( $_REQUEST['id'] ) ) ? $_REQUEST['id'] : "2";
+        $catmodel = $this->load->model( 'CatModel' );
+        
+        if( isset( $_REQUEST['catupdate'] ) ){
+            $id = ( isset( $_REQUEST['id'] ) ) ? $_REQUEST['id'] : '';
+            $name = ( isset( $_REQUEST['name'] ) ) ? $_REQUEST['name'] : '';
+            $slug = ( isset( $_REQUEST['slug'] ) ) ? $_REQUEST['slug'] : '';
+            $status = ( isset( $_REQUEST['status'] ) ) ? $_REQUEST['status'] : '';
+            
+            $cond = "id=$id";
+            $data = [
+                'name'  =>  $name,
+                'slug'  =>  $slug,
+                'status'=>  $status
+            ];
+            $catmodel->categoryUpdate( $table, $data, $cond );
+            $this->load->view( 'catupdate', $data );
+        }else{
+            $data = $catmodel->catById( $table, $id );
+            $this->load->view( 'catupdate', $data );
+        }
+    }
+
+    /**
      * Category Delete By ID
      *
      * @return string

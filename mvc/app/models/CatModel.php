@@ -42,6 +42,18 @@ class CatModel extends DatabaseModel{
         return $this->db->categoryUpdate( $table, $data, $cond );
     }
 
+    /**
+     * Update Category by form
+     *
+     * @param string $table
+     * @param array $data
+     * @param string $cond
+     * @return string
+     */
+    public function catUpdate( $table, $data, $cond ){
+        return $this->db->categoryUpdate( $table, $data, $cond );
+    }
+
     public function catDeleteById( $table, $cond ){
         return $this->db->catDeleteById( $table, $cond );
     }
