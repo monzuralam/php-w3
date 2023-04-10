@@ -2,3 +2,68 @@
     border: 5px solid #007bff;
     padding: 25px;
 }
+/* section */
+.content-section{
+    overflow: hidden;
+    position: relative;
+}
+.content-section article.post .post-wrapper h2 {
+    font-size: 28px;
+}
+.content-section article.post .post-wrapper h2 a{
+    color: #222;
+}
+.content-section article.post .post-wrapper h2 a:hover{
+    text-decoration: none;
+}
+.content-section article.post {
+    border: 1px dashed #222;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+.content-section article.post .post-wrapper .post-meta{
+    border-bottom: 1px dashed #222;
+    margin-bottom: 10px;
+}
+.content-section article.post .post-wrapper .post-meta span{
+    font-weight: 600;
+}
+.content-section article.post .post-wrapper .post-meta span a{
+    color: #222;
+    text-decoration: none;
+}
+.content-section article.post .post-wrapper .post-content p {
+    margin-bottom: 8px;
+}
+section.content-section article.post .post-wrapper .read-more a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+}
+section.content-section article.post .post-wrapper .read-more a:hover {
+    text-decoration: none;
+}
+/* sidebar */
+section.content-section aside .widget-item{
+    padding: 15px 20px;
+    border: 1px dashed #222;
+    margin-bottom: 20px;
+}
+section.content-section aside .widget-item h3 {
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #222;
+}
+section.content-section aside .widget-item .widget-wrapper ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+section.content-section aside .widget-item .widget-wrapper ul li a {
+    color: #222;
+    font-weight: 400;
+    font-size: 14px;
+}
+section.content-section aside .widget-item .widget-wrapper ul li a:hover {
+    text-decoration: none;
+}
